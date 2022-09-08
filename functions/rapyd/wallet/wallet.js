@@ -92,3 +92,5 @@ const create = (newWallet, response) => {
             console.log(error);
         });
 }
+
+export default Wallet

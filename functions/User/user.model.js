@@ -1,13 +1,7 @@
-import {auth, db} from '../config/firebase/config'
-import axios from 'axios'
-import timestamp from '../utils/timestamp'
-import rapyd_signature from'../rapyd/rapyd_signature'
-import CryptoJS from 'crypto-js'
+import {auth} from '../config/firebase/config'
 const User = function (user) {
     this.email = user.email;
     this.password = user.password;
-    this.first_name = user.first_name;
-    this.last_name = user.last_name;
 };
 
 User.signup = (newUser, result) => {
@@ -36,7 +30,7 @@ User.signIn = (data, result) => {
         });
 }
 
-User.get = (id, result) => {
+User.get = (result) => {
     const user = auth.currentUser;
     if (user !== null) {
         result(null, {
